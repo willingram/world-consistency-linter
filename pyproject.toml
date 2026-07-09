@@ -33,7 +33,8 @@ classifiers = [
 ]
 
 [project.scripts]
-worldlint = "world_consistency_linter.cli:main"
+wcl = "world_consistency_linter.cli:main"
+world_consistency_linter = "world_consistency_linter.cli:main"
 
 [project.optional-dependencies]
 dev = [
