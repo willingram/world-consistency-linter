@@ -1,0 +1,34 @@
+files:
+  - path: harlow_letter.txt
+    purported_author: "J. Okafor"
+    purported_org: "Harlow Fluid Systems"
+    purported_date: 2026-05-14
+    independent_of: [airedale_certificate.txt]
+  - path: study_plan.txt
+    purported_author: "Priya Nair"
+    purported_org: "Ansford Manufacturing Group"
+    purported_date: 2026-05-15
+  - path: airedale_certificate.txt
+    purported_author: "Airedale Metrology"
+    purported_org: "Airedale Metrology"
+    purported_date: 2026-02-20
+
+entities:
+  people:
+    - name: "Sarah Fenwick"
+      aliases: ["S. Fenwick", "Fenwick"]
+      title: "Quality Manager"
+      org: "Ansford Manufacturing Group"
+  orgs:
+    - name: "Harlow Fluid Systems"
+      aliases: ["HFS", "Harlow"]
+      address: "34 Riverway Trade Estate"
+  ids:
+    - {id: "PB-1140", kind: part}
+    - {id: "QF114", kind: form}
+
+doc_graph:
+  - from: study_plan.txt
+    cites: harlow_letter.txt
+
+intended_findings: []

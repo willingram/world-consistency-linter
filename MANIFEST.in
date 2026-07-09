@@ -1,0 +1,4 @@
+include LICENSE
+include README.md
+recursive-include examples *.yaml *.txt
+recursive-include tests/fixtures *

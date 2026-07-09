@@ -1,0 +1,59 @@
+files:
+  - path: payload/HFS_capability_requirement_letter_PB-1140.pdf
+    purported_author: "Rachel Hardy"
+    purported_org: "Harlow Fluid Systems"
+    purported_date: 2026-05-14
+    independent_of:
+      - payload/CMM_calibration_certificate_feb2026.pdf
+      - payload/gauge_RR_summary_spigot_OD_mar2026.pdf
+  - path: payload/HFS_form_QF114_capability_submission.xlsx
+    purported_org: "Harlow Fluid Systems"
+  - path: payload/PB-1140_capability_study_plan_may2026.docx
+    purported_author: "Priya Nair"
+    purported_org: "Ansford Manufacturing Group"
+    purported_date: 2026-05-15
+  - path: payload/line2_pb1140_spigot_cmm_study.csv
+    purported_org: "Ansford Manufacturing Group"
+    chronological: true
+  - path: payload/CMM_calibration_certificate_feb2026.pdf
+    purported_org: "Airedale Metrology"
+    purported_date: 2026-02-20
+  - path: payload/gauge_RR_summary_spigot_OD_mar2026.pdf
+    purported_org: "Ansford Manufacturing Group"
+    purported_date: 2026-03-19
+  - path: payload/PB-1140_length_capability_mar2026.pdf
+    purported_org: "Ansford Manufacturing Group"
+    purported_date: 2026-03-26
+
+entities:
+  people:
+    - name: "Graham Fenwick"
+      aliases: ["G. Fenwick", "Fenwick"]
+      title: "Quality Manager"
+      org: "Ansford Manufacturing Group"
+    - name: "Priya Nair"
+      title: "Quality Engineer"
+      org: "Ansford Manufacturing Group"
+    - name: "Rachel Hardy"
+      title: "Supplier Quality Engineer"
+      org: "Harlow Fluid Systems"
+  orgs:
+    - name: "Harlow Fluid Systems"
+      aliases: ["HFS", "Harlow"]
+      address: "34 Riverway Trade Estate"
+    - name: "Airedale Metrology"
+      address: "Unit 7"
+  ids:
+    - {id: "PB-1140", kind: part}
+    - {id: "QF114", kind: form}
+    - {id: "AMG-CMM-02", kind: instrument}
+
+doc_graph:
+  - from: payload/PB-1140_capability_study_plan_may2026.docx
+    cites: payload/HFS_capability_requirement_letter_PB-1140.pdf
+
+unique_titles:
+  - "Quality Manager"
+
+intended_findings:
+  - "role_collision"
