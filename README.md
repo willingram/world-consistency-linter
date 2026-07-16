@@ -26,7 +26,7 @@ uv sync --extra dev
 Run the CLI from the managed environment:
 
 ```sh
-uv run worldlint --manifest manifest.yaml --out worldlint_output
+uv run wcl --manifest manifest.yaml --out worldlint_output
 ```
 
 ### With pip
@@ -50,14 +50,15 @@ python -m pip install -e ".[dev]"
 Then run:
 
 ```sh
-worldlint --manifest manifest.yaml --out worldlint_output
+wcl --manifest manifest.yaml --out worldlint_output
+world-consistency-linter --manifest manifest.yaml --out worldlint_output
 python -m world_consistency_linter --manifest manifest.yaml --out worldlint_output
 ```
 
 ## Usage
 
 ```sh
-worldlint --manifest manifest.yaml --out worldlint_output
+wcl --manifest manifest.yaml --out worldlint_output
 ```
 
 Outputs:
@@ -75,7 +76,7 @@ Default behaviour:
 Use `--fail-on glance` for a stricter run:
 
 ```sh
-worldlint --manifest manifest.yaml --out worldlint_output --fail-on glance
+wcl --manifest manifest.yaml --out worldlint_output --fail-on glance
 ```
 
 ## Manifest
