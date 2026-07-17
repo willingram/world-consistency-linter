@@ -73,10 +73,13 @@ Default behaviour:
 - exits `2` when any `UNINTENDED` finding is `STANDARD` or louder
 - always exits non-zero for missing files, unreadable files, or empty extraction
 
-Use `--fail-on glance` for a stricter run:
+Loudness ranks from `GLANCE` (most visible) through `STANDARD` to `DEEP`
+(least visible). The default `STANDARD` threshold fails on `GLANCE` and
+`STANDARD` findings. `GLANCE` is the most permissive threshold and fails only
+on `GLANCE`; use `DEEP` to fail on all three loudness levels:
 
 ```sh
-wcl --manifest manifest.yaml --out worldlint_output --fail-on glance
+wcl --manifest manifest.yaml --out worldlint_output --fail-on deep
 ```
 
 ## Manifest
