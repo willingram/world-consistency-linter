@@ -6,6 +6,7 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.inspect_distribution import (
     EXPECTED_ENTRY_POINTS,
+    GOVERNANCE_DOCUMENTS,
     Archive,
     path_errors,
     residue_errors,
@@ -96,4 +97,13 @@ def test_wcl_entry_point_contract_is_exact() -> None:
     assert EXPECTED_ENTRY_POINTS == {
         "wcl": "world_consistency_linter.cli:main",
         "world-consistency-linter": "world_consistency_linter.cli:main",
+    }
+
+
+def test_sdist_contract_requires_all_governance_documents() -> None:
+    assert GOVERNANCE_DOCUMENTS == {
+        "CHANGELOG.md",
+        "CONTRIBUTING.md",
+        "DESIGN.md",
+        "SECURITY.md",
     }

@@ -180,6 +180,9 @@ outside the source tree.
 
 ## Repository Notes
 
+- See `CONTRIBUTING.md` for contribution and validation guidance,
+  `DESIGN.md` for the compatibility contract, `SECURITY.md` for vulnerability
+  reporting and the threat model, and `CHANGELOG.md` for notable changes.
 - Generated reports, build artifacts, virtual environments, and caches are ignored
   by Git.
 - Licensed under the MIT License. See `LICENSE`.

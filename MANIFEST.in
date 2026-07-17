@@ -1,6 +1,10 @@
+include CHANGELOG.md
+include CONTRIBUTING.md
+include DESIGN.md
 include LICENSE
 include MANIFEST.in
 include README.md
+include SECURITY.md
 include pyproject.toml
 include scripts/inspect_distribution.py
 recursive-include world_consistency_linter *.py

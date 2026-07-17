@@ -22,6 +22,12 @@ except ModuleNotFoundError:  # pragma: no cover - WCL requires Python 3.10
     import tomli as tomllib  # type: ignore[no-redef]
 
 PACKAGE = "world_consistency_linter"
+GOVERNANCE_DOCUMENTS = {
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "DESIGN.md",
+    "SECURITY.md",
+}
 EXPECTED_ENTRY_POINTS = {
     "wcl": "world_consistency_linter.cli:main",
     "world-consistency-linter": "world_consistency_linter.cli:main",
@@ -312,6 +318,7 @@ def sdist_errors(archive: Archive, repository: Path, name: str, version: str) ->
         "pyproject.toml",
         "scripts/inspect_distribution.py",
     }
+    required.update(GOVERNANCE_DOCUMENTS)
     required.update(source_files(repository, PACKAGE))
     required.update(source_files(repository, "examples"))
     required.update(source_files(repository, "tests"))
