@@ -74,9 +74,7 @@ def render_markdown(manifest: Manifest, extraction: ExtractionResult, findings: 
             lines.append("- Evidence:")
             for evidence in _dedupe_evidence(finding.evidence):
                 quote = evidence["quote"].replace("\n", " ").strip()
-                lines.append(
-                    f"  - `{evidence['file']}` [{evidence['channel']}; {evidence['location']}]: {quote}"
-                )
+                lines.append(f"  - `{evidence['file']}` [{evidence['channel']}; {evidence['location']}]: {quote}")
             lines.append("")
     else:
         lines.extend(["## Findings", "", "No findings.", ""])

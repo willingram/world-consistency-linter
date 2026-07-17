@@ -120,10 +120,7 @@ def _extract_docx(spec: FileSpec) -> list[TextChunk]:
     table_rows: list[str] = []
     for table_idx, table in enumerate(doc.tables, start=1):
         for row_idx, row in enumerate(table.rows, start=1):
-            table_rows.append(
-                f"table {table_idx} row {row_idx}: "
-                + " | ".join(cell.text.strip() for cell in row.cells)
-            )
+            table_rows.append(f"table {table_idx} row {row_idx}: " + " | ".join(cell.text.strip() for cell in row.cells))
     if table_rows:
         chunks.append(TextChunk(SourceRef(spec.path, "docx-body", "tables"), "\n".join(table_rows)))
 
@@ -134,9 +131,7 @@ def _extract_docx(spec: FileSpec) -> list[TextChunk]:
             if text.strip():
                 header_footer_text.append(f"section {section_idx} {label}: {text}")
     if header_footer_text:
-        chunks.append(
-            TextChunk(SourceRef(spec.path, "docx-header-footer", "sections"), "\n".join(header_footer_text))
-        )
+        chunks.append(TextChunk(SourceRef(spec.path, "docx-header-footer", "sections"), "\n".join(header_footer_text)))
 
     chunks.extend(_extract_docx_zip_parts(spec, {"comments", "footnotes", "endnotes"}))
     return chunks

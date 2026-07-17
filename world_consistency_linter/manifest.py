@@ -62,10 +62,7 @@ def load_manifest(path: Path) -> Manifest:
         )
         for item in entities.get("ids", [])
     ]
-    doc_graph = [
-        DocGraphEdge(source=str(item["from"]), cites=str(item["cites"]))
-        for item in data.get("doc_graph", [])
-    ]
+    doc_graph = [DocGraphEdge(source=str(item["from"]), cites=str(item["cites"])) for item in data.get("doc_graph", [])]
     intended = [str(item) for item in data.get("intended_findings", [])]
     stopwords = {
         "Quality",

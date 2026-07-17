@@ -70,9 +70,7 @@ def check_person_attributes(manifest: Manifest, mentions: list[Mention]) -> list
 def check_role_collisions(manifest: Manifest, mentions: list[Mention]) -> list[Finding]:
     canon_people = {person.name.lower(): person for person in manifest.people}
     canon_unique_titles = {
-        (_norm_title(person.title), _norm_detail(person.org))
-        for person in manifest.people
-        if person.title and person.org
+        (_norm_title(person.title), _norm_detail(person.org)) for person in manifest.people if person.title and person.org
     }
     declared_unique_titles = {_norm_title(title) for title in manifest.unique_titles}
     file_specs = {spec.path: spec for spec in manifest.files}
@@ -471,11 +469,7 @@ def _files_independent(files: list[FileSpec], observed: set[str]) -> bool:
             and left_spec.purported_author == right_spec.purported_author
         ):
             return False
-        if (
-            left_spec.purported_org
-            and right_spec.purported_org
-            and left_spec.purported_org == right_spec.purported_org
-        ):
+        if left_spec.purported_org and right_spec.purported_org and left_spec.purported_org == right_spec.purported_org:
             return False
     return True
 

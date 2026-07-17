@@ -48,9 +48,7 @@ def main(argv: list[str] | None = None) -> int:
 
     threshold = LOUDNESS_ORDER[args.fail_on.upper()]
     failing = [
-        finding
-        for finding in findings
-        if finding.classification == "UNINTENDED" and finding.severity_value() >= threshold
+        finding for finding in findings if finding.classification == "UNINTENDED" and finding.severity_value() >= threshold
     ]
     if failing:
         print(f"wcl: {len(failing)} unintended finding(s); see {args.out / 'worldlint_report.md'}")

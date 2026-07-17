@@ -21,9 +21,7 @@ TITLE_WORDS = (
     "SQE",
 )
 TITLE_RE = "|".join(re.escape(value) for value in sorted(TITLE_WORDS, key=len, reverse=True))
-PREFIX_TITLE_WORDS = tuple(
-    value for value in TITLE_WORDS if value not in {"Manager", "Engineer", "Director", "Lead"}
-)
+PREFIX_TITLE_WORDS = tuple(value for value in TITLE_WORDS if value not in {"Manager", "Engineer", "Director", "Lead"})
 PREFIX_TITLE_RE = "|".join(re.escape(value) for value in sorted(PREFIX_TITLE_WORDS, key=len, reverse=True))
 EMAIL_RE = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
 PHONE_RE = re.compile(r"\b(?:\+?\d[\d ()-]{7,}\d)\b")
@@ -48,9 +46,7 @@ def extract_mentions(chunks: list[TextChunk], manifest: Manifest) -> list[Mentio
         for parsed, raw in extract_dates(text):
             mentions.append(Mention("date", raw, chunk.source, _quote(text, raw), attributes={"iso": parsed.isoformat()}))
         for parsed, raw in extract_timestamps(text):
-            mentions.append(
-                Mention("timestamp", raw, chunk.source, _quote(text, raw), attributes={"iso": parsed.isoformat()})
-            )
+            mentions.append(Mention("timestamp", raw, chunk.source, _quote(text, raw), attributes={"iso": parsed.isoformat()}))
         for weekday, parsed, raw in weekday_mismatches(text):
             mentions.append(
                 Mention(
@@ -138,8 +134,7 @@ def _candidate_people(chunk: TextChunk, manifest: Manifest) -> list[Mention]:
 
 def _regex_mentions(chunk: TextChunk, kind: str, pattern: re.Pattern[str]) -> list[Mention]:
     return [
-        Mention(kind, match.group(0), chunk.source, _quote(chunk.text, match.group(0)))
-        for match in pattern.finditer(chunk.text)
+        Mention(kind, match.group(0), chunk.source, _quote(chunk.text, match.group(0))) for match in pattern.finditer(chunk.text)
     ]
 
 

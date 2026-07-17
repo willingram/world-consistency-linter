@@ -27,8 +27,7 @@ def test_clean_minimal_bundle_passes(tmp_path: Path) -> None:
     )
     write(
         tmp_path / "plan.txt",
-        "15 May 2026\nThe study plan follows the letter of 14 May 2026.\n"
-        "Sarah Fenwick, Quality Manager\n",
+        "15 May 2026\nThe study plan follows the letter of 14 May 2026.\nSarah Fenwick, Quality Manager\n",
     )
     manifest = {
         "files": [
@@ -103,16 +102,12 @@ def test_regressed_bundle_catches_four_known_classes(tmp_path: Path) -> None:
     write(tmp_path / "letter.txt", "Harlow Fluid Systems\nUnit 7\n14 May 2026\n")
     write(
         tmp_path / "plan.txt",
-        "12 May 2026\nThis plan follows the letter of 14 May 2026.\n"
-        "Sarah Fenwick, Quality Engineer\n",
+        "12 May 2026\nThis plan follows the letter of 14 May 2026.\nSarah Fenwick, Quality Engineer\n",
     )
     write(tmp_path / "cert.txt", "Airedale Metrology\nUnit 7\n20 February 2026\n")
     write(
         tmp_path / "cmm_export.csv",
-        "Date,Time,value\n"
-        "2026-05-18,08:00,12.001\n"
-        "2026-05-18,08:05,12.002\n"
-        "2026-05-18,08:03,12.003\n",
+        "Date,Time,value\n2026-05-18,08:00,12.001\n2026-05-18,08:05,12.002\n2026-05-18,08:03,12.003\n",
     )
     manifest = {
         "files": [
