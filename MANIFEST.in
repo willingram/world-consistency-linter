@@ -1,4 +1,11 @@
 include LICENSE
+include MANIFEST.in
 include README.md
+include pyproject.toml
+include scripts/inspect_distribution.py
+recursive-include world_consistency_linter *.py
 recursive-include examples *.yaml *.txt
+recursive-include tests *.py
 recursive-include tests/fixtures *
+global-exclude __pycache__
+global-exclude *.py[cod]

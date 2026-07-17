@@ -161,6 +161,20 @@ python -m ruff format .
 The test fixtures under `tests/fixtures` are synthetic document bundles used to
 exercise known consistency-failure modes.
 
+To validate the publishable artifacts without uploading them, start with no
+existing `dist` directory and run:
+
+```sh
+uv run --frozen python -m build
+uv run --frozen twine check --strict dist/*
+uv run --frozen python scripts/inspect_distribution.py dist
+```
+
+These commands build and inspect one wheel and one source distribution locally.
+They do not upload to PyPI or any other package index. CI additionally installs
+the wheel into an isolated environment and exercises every supported command
+outside the source tree.
+
 ## Repository Notes
 
 - Generated reports, build artifacts, virtual environments, and caches are ignored
