@@ -190,6 +190,10 @@ metadata, archive path safety, and common secret/development residue. It is a
 release preflight, not a general archive-security or malware scan. None of the
 validation commands publish artifacts.
 
+Both artifacts publish exact project links for the homepage, source repository,
+issue tracker, and changelog. Those four labels and destinations are validated
+as package metadata rather than inferred from the checkout.
+
 ## Security and resource limits
 
 Manifest and document parsing is not sandboxed or isolated. There are no

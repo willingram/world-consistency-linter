@@ -32,6 +32,12 @@ classifiers = [
   "Topic :: Text Processing",
 ]
 
+[project.urls]
+Homepage = "https://github.com/willingram/world-consistency-linter"
+Repository = "https://github.com/willingram/world-consistency-linter"
+Issues = "https://github.com/willingram/world-consistency-linter/issues"
+Changelog = "https://github.com/willingram/world-consistency-linter/blob/main/CHANGELOG.md"
+
 [project.scripts]
 wcl = "world_consistency_linter.cli:main"
 world-consistency-linter = "world_consistency_linter.cli:main"
